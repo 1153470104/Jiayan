@@ -146,11 +146,11 @@ if __name__ == '__main__':
     # for test in tests:
     #     print(list(tokenizer.tokenize(test)))
 
-    postagger = CRFPOSTagger()
-    postagger.load('/Users/jiaeyan/Desktop/pos_model_50')
-    # words = ['是', '故', '内圣外王', '之', '道', '，', '暗', '而', '不', '明', '，', '郁', '而', '不', '发', '，', '天下', '之', '人', '各', '为', '其', '所', '欲', '焉', '以', '自', '为', '方', '。']
-    words = ['天下', '大乱', '，', '贤圣', '不', '明', '，', '道德', '不', '一', '，', '天下', '多', '得', '一', '察', '焉', '以', '自', '好', '。']
-    print(postagger.postag(words))
+    # postagger = CRFPOSTagger()
+    # postagger.load('/Users/jiaeyan/Desktop/pos_model_50')
+    # # words = ['是', '故', '内圣外王', '之', '道', '，', '暗', '而', '不', '明', '，', '郁', '而', '不', '发', '，', '天下', '之', '人', '各', '为', '其', '所', '欲', '焉', '以', '自', '为', '方', '。']
+    # words = ['天下', '大乱', '，', '贤圣', '不', '明', '，', '道德', '不', '一', '，', '天下', '多', '得', '一', '察', '焉', '以', '自', '好', '。']
+    # print(postagger.postag(words))
     # for test in tests:
     #     words = list(tokenizer.tokenize(test))
     #     print(words)
@@ -160,17 +160,18 @@ if __name__ == '__main__':
 
 
 
-    # test = '天下大乱贤圣不明道德不一天下多得一察焉以自好譬如耳目皆有所明不能相通犹百家众技也皆有所长时有所用虽然不该不遍一之士也' \
-    #        '判天地之美析万物之理察古人之全寡能备于天地之美称神之容是故内圣外王之道暗而不明郁而不发天下之人各为其所欲焉以自为方' \
-    #        '悲夫百家往而不反必不合矣后世之学者不幸不见天地之纯古之大体道术将为天下裂'
-    #
+    test = '天下大乱贤圣不明道德不一天下多得一察焉以自好譬如耳目皆有所明不能相通犹百家众技也皆有所长时有所用虽然不该不遍一之士也' \
+           '判天地之美析万物之理察古人之全寡能备于天地之美称神之容是故内圣外王之道暗而不明郁而不发天下之人各为其所欲焉以自为方' \
+           '悲夫百家往而不反必不合矣后世之学者不幸不见天地之纯古之大体道术将为天下裂'
+
     # lm_path = 'data/jiayan.klm'
+    lm_path = 'C:\TJlab\Tang\chinese_poetry\jiayan.klm'
 
     # print('Constructing lexicon...')
     # construct_lexicon('data/庄子.txt', '庄子1.csv')
     #
-    # print('\nTokenizing test text with HMM...')
-    # hmm_tokenize(lm_path, test)
+    print('\nTokenizing test text with HMM...')
+    hmm_tokenize(lm_path, test)
     #
     # print('\nTokenizing test text with N-grams...')
     # for test in tests:
