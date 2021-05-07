@@ -41,13 +41,14 @@ if __name__ == '__main__':
     hmm_tokenizer = CharHMMTokenizer(lm)
     tang_tokenizer = TangCharHMMTokenizer(lm)
 
-    # f = open("resource/qujiang_raw.txt", encoding='utf-8')
-    # line = f.readline()
-    # while(line):
-    #     list_to_file("resource/qujiang_hmm.txt", list(tokenizer.tokenize(text)))
-    #     list_to_file("resource/qujiang_tang.txt", list(tokenizer.tokenize(text)))
-    #     line = f.readline()
-    # f.close()
+    f = open("resource/qujiang_raw.txt", encoding='utf-8')
+    line = f.readline()
+    while line:
+        # list_to_file("resource/qujiang_hmm.txt", list(tang_tokenizer.tokenize(line)))
+        list_to_file("resource/qujiang_tang.txt", tang_tokenizer.intervene(line))
+        # list_to_file("resource/qujiang_tang_trans.txt", tang_tokenizer.intervene(line))
+        line = f.readline()
+    f.close()
 
     text0 = "送春归，三月尽日日暮时。去年杏园花飞御沟绿，何处送春曲江曲。今年杜鹃花落子规啼，送春何处西江西。帝城送春犹怏怏" \
             "，天涯送春能不加惆怅。莫惆怅，送春人。冗员无替五年罢，应须准拟再送浔阳春。五年炎凉凡十变，又知此身健不健。" \
@@ -58,20 +59,33 @@ if __name__ == '__main__':
     text4 = "及第新春选胜游，杏园初宴曲江头。紫毫粉壁题仙籍，柳色箫声拂御楼。霁景露光明远岸，晚空山翠坠芳洲。归时不省花间醉，绮陌香车似水流。"
     text5 = "寂寂孤莺啼杏园，寥寥壹犬吠桃源。落花芳草无寻处，万壑千峰独闭门。"
 
-    print(list_to_text(list(hmm_tokenizer.tokenize(text0))))
-    print(list_to_text(list(tang_tokenizer.tokenize(text0))))
+    # test
+    # print(tang_tokenizer.seg_score("霁景"))
+    # print(tang_tokenizer.seg_score("霁") + tang_tokenizer.seg_score("景"))
+    # print(tang_tokenizer.seg_score("晚空"))
+    # print(tang_tokenizer.seg_score("晚") + tang_tokenizer.seg_score("空"))
 
-    print(list_to_text(list(hmm_tokenizer.tokenize(text1))))
-    print(list_to_text(list(tang_tokenizer.tokenize(text1))))
+    # print(tang_tokenizer.validate(list(tang_tokenizer.sentences(text1))))
 
-    print(list_to_text(list(hmm_tokenizer.tokenize(text2))))
-    print(list_to_text(list(tang_tokenizer.tokenize(text2))))
+    # print(list_to_text(list(hmm_tokenizer.tokenize(text0))))
+    # print(list_to_text(list(tang_tokenizer.tokenize(text0))))
 
-    print(list_to_text(list(hmm_tokenizer.tokenize(text3))))
-    print(list_to_text(list(tang_tokenizer.tokenize(text3))))
+    # print(list_to_text(list(hmm_tokenizer.tokenize(text1))))
+    # print(list_to_text(list(tang_tokenizer.tokenize(text1))))
+    # print(list_to_text(tang_tokenizer.intervene(text1)))
 
-    print(list_to_text(list(hmm_tokenizer.tokenize(text4))))
-    print(list_to_text(list(tang_tokenizer.tokenize(text4))))
+    # print(list_to_text(list(hmm_tokenizer.tokenize(text2))))
+    # print(list_to_text(list(tang_tokenizer.tokenize(text2))))
+    # print(list_to_text(tang_tokenizer.intervene(text2)))
 
-    print(list_to_text(list(hmm_tokenizer.tokenize(text5))))
-    print(list_to_text(list(tang_tokenizer.tokenize(text5))))
+    # print(list_to_text(list(hmm_tokenizer.tokenize(text3))))
+    # print(list_to_text(list(tang_tokenizer.tokenize(text3))))
+    # print(list_to_text(tang_tokenizer.intervene(text3)))
+    #
+    # # print(list_to_text(list(hmm_tokenizer.tokenize(text4))))
+    # print(list_to_text(list(tang_tokenizer.tokenize(text4))))
+    # print(list_to_text(tang_tokenizer.intervene(text4)))
+    #
+    # # print(list_to_text(list(hmm_tokenizer.tokenize(text5))))
+    # print(list_to_text(list(tang_tokenizer.tokenize(text5))))
+    # print(list_to_text(tang_tokenizer.intervene(text5)))
