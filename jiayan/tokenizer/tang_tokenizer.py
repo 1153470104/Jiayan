@@ -107,16 +107,16 @@ class TangCharHMMTokenizer:
         # low to-b and high to-next-char-in-word transition probs lead to long words;
         # high to-b and low to-next-char-in-word transition probs lead to short words.
 
-        # trans = {'bb': 0.86, 'bc': 0.14,
-        #          'cb': 0.998, 'cd': 0.002,
-        #          'db': 0.999, 'de': 0.001,
-        #          'eb': 0.9999, 'ee': 0.0001}
-
-        # 以下的是jiayan作者指定的转移概率，未来可以继续修改
-        trans = {'bb': 0.85, 'bc': 0.15,
-                 'cb': 0.9925, 'cd': 0.0075,
+        trans = {'bb': 0.9, 'bc': 0.1,
+                 'cb': 0.996, 'cd': 0.004,
                  'db': 0.999, 'de': 0.001,
                  'eb': 0.9999, 'ee': 0.0001}
+
+        # 以下的是jiayan作者指定的转移概率，未来可以继续修改
+        # trans = {'bb': 0.85, 'bc': 0.15,
+        #          'cb': 0.9925, 'cd': 0.0075,
+        #          'db': 0.999, 'de': 0.001,
+        #          'eb': 0.9999, 'ee': 0.0001}
 
         # trans = {'bb': 0.8, 'bc': 0.2,
         #          'cb': 0.9925, 'cd': 0.0075,
@@ -190,7 +190,7 @@ class TangCharHMMTokenizer:
                 return -1
         return length - 1
 
-    def intervene(self, text: str):
+    def intervene_tokenize(self, text: str):
         words = self.tokenize(text)
         sentences = self.sentences(list(words))  # 用于得到分句的分词结果。
         valid_num = self.validate(sentences)
