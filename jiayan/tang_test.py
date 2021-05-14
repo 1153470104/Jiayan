@@ -1,12 +1,6 @@
-from jiayan import PMIEntropyLexiconConstructor
 from jiayan import CharHMMTokenizer
 from jiayan import TangCharHMMTokenizer
-from jiayan import WordNgramTokenizer
-from jiayan import CRFSentencizer
-from jiayan import CRFPunctuator
-from jiayan import CRFPOSTagger
 from jiayan import load_lm
-import jieba
 
 
 def init_file():
@@ -36,7 +30,7 @@ def list_to_text(p_list):
 
 if __name__ == '__main__':
     lm_path = 'C:/TJlab/Tang/chinese_poetry/jiayan.klm'
-    # print('\nTokenizing test text with HMM...')
+    print('\nTokenizing test text with HMM...')
     # init_file()
     lm = load_lm(lm_path)
     hmm_tokenizer = CharHMMTokenizer(lm)
